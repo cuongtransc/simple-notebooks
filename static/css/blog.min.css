@@ -807,7 +807,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: "Ubuntu Mono", Menlo, Monaco, Consolas, "Courier New", monospace
+    font-family: "Source Code Pro", "Ubuntu Mono", Menlo, Monaco, Consolas, "Courier New", monospace
 }
 
 code {
@@ -7164,7 +7164,7 @@ div.content p {
 form#editor textarea,
 form#editor input,
 form#editor select {
-    font-family: "Ubuntu Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: "Source Code Pro", "Ubuntu Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 75%
 }
 
