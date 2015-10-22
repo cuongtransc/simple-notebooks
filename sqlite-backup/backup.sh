@@ -5,7 +5,7 @@ BASEDIR=$(readlink -f "${BASEDIR}")
 
 BACKUP_DIR=${BASEDIR}/dump
 
-DB_SOURCE_PATH=..
+DB_SOURCE_PATH=${BASEDIR}/..
 DB_SOURCE_NAME=blog.db
 
 echo "Backup: ${DB_SOURCE_NAME} ..."

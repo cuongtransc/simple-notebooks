@@ -8,7 +8,10 @@ fi
 FILE_BACKUP=$1
 FILE_BACKUP=$(readlink -f "${FILE_BACKUP}")
 
-DB_SOURCE_PATH=..
+BASEDIR=$(dirname ${0})
+BASEDIR=$(readlink -f "${BASEDIR}")
+
+DB_SOURCE_PATH=${BASEDIR}/..
 DB_SOURCE_NAME=blog.db
 
 echo "Backup: ${DB_SOURCE_NAME} ..."
