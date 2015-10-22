@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import datetime
 import functools
@@ -119,13 +119,13 @@ class Entry(flask_db.Model):
         if not words:
             # Return an empty query.
             return Entry.select().where(Entry.id == 0)
-        else:
-            search = ' '.join(words)
+
+        search = ' '.join(words)
 
         # Query the full-text search index for entries matching the given
         # search query, then join the actual Entry data on the matching
         # search result.
-        return (FTSEntry
+        result = (FTSEntry
                 .select(
                     FTSEntry,
                     Entry,
@@ -135,6 +135,7 @@ class Entry(flask_db.Model):
                     (Entry.published == True) &
                     (FTSEntry.match(search)))
                 .order_by(SQL('score').desc()))
+        return result
 
 class FTSEntry(FTSModel):
     entry_id = IntegerField(Entry)
@@ -266,7 +267,7 @@ def not_found(exc):
 def main():
     database.create_tables([Entry, FTSEntry], safe=True)
     #app.run(debug=True)
-    app.run(port=5000, debug=True)
+    app.run(port=5000, host='0.0.0.0', debug=True)
 
 if __name__ == '__main__':
     main()
