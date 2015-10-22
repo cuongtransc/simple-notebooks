@@ -1,5 +1,6 @@
 /*@import url("//fonts.googleapis.com/css?family=Ubuntu:400,700,400italic");*/
-@import url("//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700");
+/*@import url("//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700");*/
+@import url('http://fonts.googleapis.com/css?family=Open+Sans');
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
@@ -837,7 +838,8 @@ pre {
     word-break: break-all;
     word-wrap: break-word;
     color: #fff;
-    background-color: #000;
+    /*background-color: #000;*/
+    background-color: #2e3436;
     border: 1px solid #607d8b;
     border-radius: 0
 }
