@@ -112,3 +112,4 @@ tmp/
 blog.db
 config.py
 
+logs/*.log*
