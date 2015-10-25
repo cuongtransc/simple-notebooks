@@ -2,7 +2,13 @@
 
 {% block title %}Blog entries{% endblock %}
 
-{% block content_title %}{% if search %}Search "{{ search }}"{% else %}Blog entries{% endif %}{% endblock %}
+{% block content_title %}
+    {% if search %}
+        Search "{{ search }}"
+    {% else %}
+        Blog entries
+    {% endif %}
+{% endblock %}
 
 {% block content %}
     {% for entry in object_list %}
@@ -10,10 +16,11 @@
             {% set entry = entry.entry %}
         {% endif %}
         <h3>
-            <a href="
-                    {% if entry.published %}{{ url_for('detail', slug=entry.slug) }}{% else %}{{ url_for('edit', slug=entry.slug) }}{% endif %}">
-                {{ entry.title }}
-            </a>
+            {% if entry.published %}
+                <a href="{{ url_for('detail', slug=entry.slug) }}">{{ entry.title }}</a>
+            {% else %}
+                <a href="{{ url_for('edit', slug=entry.slug) }}">{{ entry.title }}</a>
+            {% endif %}
         </h3>
         <p>Created {{ momentjs(entry.timestamp).fromNowIfLessDay() }}</p>
     {% else %}
