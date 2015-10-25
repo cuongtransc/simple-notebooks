@@ -11,6 +11,8 @@
     {% block extra_head %}{% endblock %}
     <script src="{{ url_for('static', filename='lib/jquery/dist/jquery.js') }}" type="text/javascript"></script>
     <script src="{{ url_for('static', filename='lib/bootstrap-css/js/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='lib/moment/min/moment-with-locales.min.js') }}"></script>
+      <script>moment.locale("{{ g.locale }}");</script>
     {% block extra_scripts %}{% endblock %}
   </head>
 

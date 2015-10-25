@@ -17,11 +17,13 @@ from peewee import *
 from playhouse.flask_utils import FlaskDB, get_object_or_404, object_list
 from playhouse.sqlite_ext import *
 
+from .momentjs import momentjs
 
 # Create a Flask WSGI app and configure it using values from the module.
 app = Flask(__name__)
 # app.config.from_object(__name__)
 app.config.from_object('config')
+app.jinja_env.globals['momentjs'] = momentjs
 
 # FlaskDB is a wrapper for a peewee database that sets up pre/post-request
 # hooks for managing database connections.
@@ -243,5 +245,3 @@ def clean_querystring(request_args, *keys_to_remove, **new_values):
 @app.errorhandler(404)
 def not_found(exc):
     return Response('<h3>Not found</h3>'), 404
-
-print('hello')

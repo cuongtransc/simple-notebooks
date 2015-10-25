@@ -11,6 +11,8 @@
 {% endblock %}
 
 {% block content %}
-  <p>Created {{ entry.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
+  <!--<p>Created {{ entry.timestamp.strftime('%Y-%m-%d at %H:%M:%S') }}</p>-->
+  <p>Created at {{ momentjs(entry.timestamp).fromNowIfLessDay() }}</p>
   {{ entry.html_content }}
 {% endblock %}
+
