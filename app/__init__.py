@@ -44,7 +44,7 @@ class Entry(flask_db.Model):
     slug = CharField(unique=True)
     content = TextField()
     published = BooleanField(index=True)
-    timestamp = DateTimeField(default=datetime.datetime.now, index=True)
+    timestamp = DateTimeField(default=datetime.datetime.utcnow, index=True)
 
     @property
     def html_content(self):
