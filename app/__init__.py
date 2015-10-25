@@ -18,30 +18,10 @@ from playhouse.flask_utils import FlaskDB, get_object_or_404, object_list
 from playhouse.sqlite_ext import *
 
 
-# Blog configuration values.
-
-# You may consider using a one-way hash to generate the password, and then
-# use the hash again in the login view to perform the comparison. This is just
-# for simplicity.
-ADMIN_PASSWORD = 'secret'
-APP_DIR = os.path.dirname(os.path.realpath(__file__))
-
-# The playhouse.flask_utils.FlaskDB object accepts database URL configuration.
-DATABASE = 'sqliteext:///%s' % os.path.join(APP_DIR, 'blog.db')
-DEBUG = False
-
-# The secret key is used internally by Flask to encrypt session data stored
-# in cookies. Make this unique for your app.
-SECRET_KEY = 'shhh, secret!'
-
-# This is used by micawber, which will attempt to generate rich media
-# embedded objects with maxwidth=800.
-SITE_WIDTH = 800
-
-
 # Create a Flask WSGI app and configure it using values from the module.
 app = Flask(__name__)
-app.config.from_object(__name__)
+# app.config.from_object(__name__)
+app.config.from_object('config')
 
 # FlaskDB is a wrapper for a peewee database that sets up pre/post-request
 # hooks for managing database connections.
@@ -258,7 +238,7 @@ def clean_querystring(request_args, *keys_to_remove, **new_values):
     for key in keys_to_remove:
         querystring.pop(key, None)
     querystring.update(new_values)
-    return urllib.urlencode(querystring)
+    return urllib.parse.urlencode(querystring)
 
 @app.errorhandler(404)
 def not_found(exc):
