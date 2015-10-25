@@ -1,0 +1,17 @@
+{% extends "base.jinja2" %}
+
+{% block title %}{{ entry.title }}{% endblock %}
+
+{% block content_title %}{{ entry.title }}{% endblock %}
+
+{% block extra_header %}
+    {% if session.logged_in %}
+        <li><a href="{{ url_for('edit', slug=entry.slug) }}">Edit entry</a></li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <p>Created at {{ momentjs(entry.timestamp).fromNowIfLessDay() }}</p>
+    {{ entry.html_content }}
+{% endblock %}
+
