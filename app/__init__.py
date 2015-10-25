@@ -148,14 +148,14 @@ def login():
             return redirect(next_url or url_for('index'))
         else:
             flash('Incorrect password.', 'danger')
-    return render_template('login.html', next_url=next_url)
+    return render_template('login.jinja2', next_url=next_url)
 
 @app.route('/logout/', methods=['GET', 'POST'])
 def logout():
     if request.method == 'POST':
         session.clear()
         return redirect(url_for('login'))
-    return render_template('logout.html')
+    return render_template('logout.jinja2')
 
 @app.route('/')
 def index():
@@ -170,7 +170,7 @@ def index():
     # the docs:
     # http://docs.peewee-orm.com/en/latest/peewee/playhouse.html#object_list
     return object_list(
-        'index.html',
+        'index.jinja2',
         query,
         search=search_query,
         check_bounds=False)
@@ -191,13 +191,13 @@ def create():
                 return redirect(url_for('edit', slug=entry.slug))
         else:
             flash('Title and Content are required.', 'danger')
-    return render_template('create.html')
+    return render_template('create.jinja2')
 
 @app.route('/drafts/')
 @login_required
 def drafts():
     query = Entry.drafts().order_by(Entry.timestamp.desc())
-    return object_list('index.html', query, check_bounds=False)
+    return object_list('index.jinja2', query, check_bounds=False)
 
 @app.route('/<slug>/')
 def detail(slug):
@@ -206,7 +206,7 @@ def detail(slug):
     else:
         query = Entry.public()
     entry = get_object_or_404(query, Entry.slug == slug)
-    return render_template('detail.html', entry=entry)
+    return render_template('detail.jinja2', entry=entry)
 
 @app.route('/<slug>/edit/', methods=['GET', 'POST'])
 @login_required
@@ -227,7 +227,7 @@ def edit(slug):
         else:
             flash('Title and Content are required.', 'danger')
 
-    return render_template('edit.html', entry=entry)
+    return render_template('edit.jinja2', entry=entry)
 
 @app.template_filter('clean_querystring')
 def clean_querystring(request_args, *keys_to_remove, **new_values):
