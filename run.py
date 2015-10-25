@@ -17,5 +17,7 @@ if app.debug is not True:
     file_handler.setFormatter(formatter)
     app.logger.addHandler(file_handler)
 
-app.run(port=5000, host='0.0.0.0', debug=app.debug)
+app.run(host=app.config.get('APP_HOST', '127.0.0.1'),
+        port=app.config.get('APP_PORT', 5000),
+        debug=app.debug)
 

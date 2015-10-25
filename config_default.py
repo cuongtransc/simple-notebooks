@@ -28,3 +28,5 @@ SECRET_KEY = 'shhh, secret!'
 # embedded objects with maxwidth=800.
 SITE_WIDTH = 800
 
+APP_HOST='127.0.0.1'
+APP_PORT=5000
