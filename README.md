@@ -1,6 +1,6 @@
 # simple-notebooks
 
-# setup
+## setup
 **step 1:** clone git repo
 ```sh
 git clone git@github.com:tranhuucuong91/simple-notebooks.git
