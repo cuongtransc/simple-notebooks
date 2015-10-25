@@ -15,8 +15,9 @@ import os
 ADMIN_PASSWORD = 'admin@secret'
 APP_DIR = os.path.dirname(os.path.realpath(__file__))
 
+PATH_SQLITE_DB=os.path.join(APP_DIR, 'blog.db')
 # The playhouse.flask_utils.FlaskDB object accepts database URL configuration.
-DATABASE = 'sqliteext:///%s' % os.path.join(APP_DIR, 'blog.db')
+DATABASE = 'sqliteext:///{}'.format(PATH_SQLITE_DB)
 DEBUG = False
 
 # The secret key is used internally by Flask to encrypt session data stored

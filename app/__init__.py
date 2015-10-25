@@ -244,10 +244,4 @@ def clean_querystring(request_args, *keys_to_remove, **new_values):
 def not_found(exc):
     return Response('<h3>Not found</h3>'), 404
 
-def main():
-    database.create_tables([Entry, FTSEntry], safe=True)
-    #app.run(debug=True)
-    app.run(port=5000, host='0.0.0.0', debug=True)
-
-if __name__ == '__main__':
-    main()
+print('hello')
