@@ -5,3 +5,4 @@ micawber
 pygments
 markdown
 peewee
+elasticsearch
