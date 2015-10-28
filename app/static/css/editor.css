@@ -1,0 +1,20 @@
+.CodeMirror {
+    height: auto;
+    font-family: "Source Code Pro", Monaco, 'Andale Mono', 'Lucida Console', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+    /*font-size: 10pt;*/
+}
+
+/*#codearea {*/
+/*max-height: 500px;*/
+/*height: 500px;*/
+/*}*/
+
+/*#preview {*/
+/*background: #fff;*/
+/*min-height: 500px;*/
+/*}*/
+
+/*#render {*/
+/*height: 100%;*/
+/*width: 100%;*/
+/*}*/
