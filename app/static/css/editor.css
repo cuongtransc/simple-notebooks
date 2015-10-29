@@ -4,6 +4,10 @@
     /*font-size: 10pt;*/
 }
 
+.CodeMirror-scroll {
+    min-height: 300px;
+}
+
 /*#codearea {*/
 /*max-height: 500px;*/
 /*height: 500px;*/
