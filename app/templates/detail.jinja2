@@ -2,6 +2,10 @@
 
 {% block title %}{{ entry.title }}{% endblock %}
 
+{% block extra_scripts %}
+    <script src="{{ url_for('static', filename='js/render-table.js') }}"></script>
+{% endblock %}
+
 {% block content_title %}{{ entry.title }}{% endblock %}
 
 {% block extra_header %}
