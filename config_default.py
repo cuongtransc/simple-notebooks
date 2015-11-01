@@ -30,3 +30,12 @@ SITE_WIDTH = 800
 
 APP_HOST='127.0.0.1'
 APP_PORT=5000
+
+ES_HOST = {
+    "host": "172.17.42.1",
+    "port": 9200
+}
+
+ES_INDEX_NAME = 'notebooks'
+ES_TYPE_NAME = 'notebooks'
+
