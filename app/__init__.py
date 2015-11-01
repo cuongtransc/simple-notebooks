@@ -75,7 +75,9 @@ class Entry(flask_db.Model):
         ret = super(Entry, self).save(*args, **kwargs)
 
         # Store search content.
-        self.update_search_index()
+        if app.config.get('IS_ES_INDEX'):
+            self.update_search_index()
+
         return ret
 
     # def update_search_index(self):
@@ -200,6 +202,9 @@ def index():
 
 @app.route('/search', methods=['GET'])
 def es_search2():
+    if not app.config.get('IS_ES_INDEX'):
+        return 'Sorry, you need enable Elasticsearch first.'
+
     app.logger.info('{} - {}'.format(request.remote_addr, request.url))
     query = request.args.get('q')
     results = es.search(index=app.config.get('ES_INDEX_NAME'),
