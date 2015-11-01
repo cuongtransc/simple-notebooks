@@ -70,4 +70,5 @@ cp config_default.py config.py
 
 ## Use simple-notebooks
 Login: http://127.0.0.1:5000/login/
+
 Password: `admin@secret`
