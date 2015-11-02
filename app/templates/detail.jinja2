@@ -17,5 +17,6 @@
 {% block content %}
     <p>Created {{ momentjs(entry.timestamp).fromNowIfLessDay() }}</p>
     {{ entry.html_content }}
+
 {% endblock %}
 

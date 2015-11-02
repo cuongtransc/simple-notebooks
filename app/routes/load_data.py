@@ -69,9 +69,9 @@ def create_index():
                         "tokenizer": "standard",
                         "filter": ["lowercase", "asciifolding"]
                     },
-                    "vietnamese": {
-                        "tokenizer": "vi_tokenizer"
-                    },
+                    # "vietnamese": {
+                    #     "tokenizer": "vi_tokenizer"
+                    # },
                     "folding": {
                         "tokenizer": "standard",
                         "filter": ["lowercase", "asciifolding"]

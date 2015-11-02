@@ -13,10 +13,9 @@ from flask import abort, jsonify, request
 
 
 # from pprint import pprint
-from elasticsearch import Elasticsearch
-
-
-es = Elasticsearch(hosts=[app.config.get('ES_HOST')])
+# from elasticsearch import Elasticsearch
+# es = Elasticsearch(hosts=[app.config.get('ES_HOST')])
+from app import es
 
 
 # @app.route('/glossary')
@@ -76,4 +75,3 @@ def es_search():
         abort(404)
 
     return jsonify({'results': hits})
-
