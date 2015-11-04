@@ -38,7 +38,7 @@ git clone git@github.com:tranhuucuong91/simple-notebooks.git
 ```sh
 cd simple-notebooks
 
-virtualenv venv
+virtualenv -p python3 venv
 
 source venv/bin/activate
 ```
