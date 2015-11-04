@@ -1,5 +1,6 @@
 # simple-notebooks
 
+Develop from project https://github.com/coleifer/peewee/tree/master/examples/blog.
 
 ## Install dev tools on ubuntu 14.04
 **Step 1:** Install `git`
@@ -72,3 +73,6 @@ cp config_default.py config.py
 Login: http://127.0.0.1:5000/login/
 
 Password: `admin@secret`
+
+## License - MIT
+
