@@ -3,8 +3,9 @@
 
 import os
 from config import PATH_SQLITE_DB
-from app import database, Entry, FTSEntry
+from app import database
+from app.models.entry import Entry
 
 # init database if don't exist
 if not os.path.exists(PATH_SQLITE_DB):
-    database.create_tables([Entry, FTSEntry], safe=True)
+    database.create_tables([Entry], safe=True)
