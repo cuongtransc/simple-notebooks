@@ -1,0 +1,21 @@
+#
+# syntax: https://docs.docker.com/compose/yml/
+#
+
+elasticsearch:
+    image: elasticsearch:1.7
+    ports:
+        - "9200:9200"
+        - "9300:9300"
+    volumes:
+        #- ./config:/usr/share/elasticsearch/config
+        - ./elasticsearch-data:/usr/share/elasticsearch/data
+    hostname: elasticsearch
+    domainname: coclab.lan
+    cpu_shares: 512             # 0.5 CPU
+    mem_limit: 536870912        # 512 MB RAM
+    #privileged: true
+    restart: always
+    #stdin_open: true
+    tty: true
+
